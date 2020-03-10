@@ -1,0 +1,141 @@
+/*--------------------The whole page-------------------------*/
+* {
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+body {
+    width: 100vw;
+    height: auto;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: '. header header header header .'
+                         '. options options options options .'
+                         '. card card card card .'
+                         '. card card card card .'
+                         '. card card card card .'
+                         '. card card card card .';
+}
+
+
+/*--------------------FONT-------------------------*/
+h1 {
+    font-family: 'Kalam', cursive;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+h2, p, button {
+    font-family: 'Handlee', cursive;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+/*--------------------HEADER-------------------------*/
+header {
+    width: 100%;
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*--------------------SECTION MENU-------------------------*/
+.options {
+    width: 100%;
+    grid-area: options;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    background-color: rgb(201, 200, 200);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 10px;
+    text-decoration: solid;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(160, 157, 157);
+}
+
+button:focus {
+    outline:0;
+}
+
+button:active {
+    background-color: rgb(160, 157, 157);
+}
+
+
+/*--------------------Cards-------------------------*/
+main {
+    width: 100%;
+    grid-area: card;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    perspective: 1000px;
+    background-color: rgb(221, 220, 220);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+.card {
+    background-color: #b2a9d1;
+    border: 2px solid #969696;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    width: 10rem;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+    border-radius: 5px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.card:hover {
+    background-color: #7f7996;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card > h2 {
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+
+
+/*--------------------POPUP Congratulation-------------------------*/
+#congratulations {
+    background-color: #a1a1a1;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    transition: opacity 500ms, all 2s ease-in-out;
+    border-radius: 10px;
+}
+
+.popuptext {
+    margin: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hide {
+    display: none;
+}
