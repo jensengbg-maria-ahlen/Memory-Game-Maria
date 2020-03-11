@@ -95,7 +95,6 @@ function disableFlippedCards() {
 
 //Let cards show for a few seconds before flipping back when match = false
 function unFlipCards() {
-    lockBoard = true;
     setTimeout(() => {
       firstCard.classList.remove('card-front');
       secondCard.classList.remove('card-front');
@@ -119,7 +118,7 @@ function flippBackCards() {
 }
 
 //To remove the popup from the page
- function showPopup() {
+function showPopup() {
     popup.classList.toggle('hide');
     document.getElementById('try-again-button').addEventListener('click', function() {
         popup.classList.toggle('hide');
@@ -133,5 +132,7 @@ document.getElementById('new-game-button').addEventListener('click', restartGame
 function restartGame() {
     flippBackCards();
     assignNumber();
-    flipCards();
+    countMatch = 0;
+    resetBoard();
+    card.forEach(card => card.addEventListener('click', flipCards));
 }
