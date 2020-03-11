@@ -54,18 +54,18 @@ function flipCards(event) {
 
     //Comparing the cards
     if (!firstCard || !secondCard) {
-    event.target.classList.toggle('card-front');
-    if (lockBoard) return;
-    
-    //Hinder dubble click on card
-    if (this === firstCard) return; 
-    if (!hasFlippedCard) {
-        hasFlippedCard = true;
-        firstCard = this;
-        return;
-    }
-    secondCard = this;
-    checkForMatch();
+        event.target.classList.toggle('card-front');
+        if (lockBoard) return;
+        
+        //Hinder dubble click on card
+        if (this === firstCard) return; 
+        if (!hasFlippedCard) {
+            hasFlippedCard = true;
+            firstCard = this;
+            return;
+        }
+        secondCard = this;
+        checkForMatch();
     }
 }
 
@@ -78,8 +78,7 @@ function checkForMatch() {
 
         //Congratulations popup when game has been won
         if (countMatch === 8) {
-            popup.classList.toggle('hide');
-            document.getElementById('try-again-button').addEventListener('click', restartGame);
+            showPopup();
         }
         disableFlippedCards();
         return;
@@ -105,7 +104,7 @@ function unFlipCards() {
 }
 
 //Reset the varable that holds the cards when clicked on
-function resetBoard(){
+function resetBoard() {
     [hasFlippedCard, lockBoard] = [false,false];
     [firstCard, secondCard] = [null, null];
 }
@@ -120,8 +119,12 @@ function flippBackCards() {
 }
 
 //To remove the popup from the page
-function removePopup() {
+ function showPopup() {
     popup.classList.toggle('hide');
+    document.getElementById('try-again-button').addEventListener('click', function() {
+        popup.classList.toggle('hide');
+        restartGame();
+    });
 }
 
 //Pressing the button to restart the game
@@ -130,5 +133,5 @@ document.getElementById('new-game-button').addEventListener('click', restartGame
 function restartGame() {
     flippBackCards();
     assignNumber();
-    removePopup();
+    flipCards();
 }
