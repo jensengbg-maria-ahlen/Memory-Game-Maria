@@ -118,7 +118,7 @@ main {
 
 /*--------------------POPUP Congratulation-------------------------*/
 .hide {
-    display: none !important;
+    display: none;
 }
 
 #congratulations {

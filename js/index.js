@@ -19,7 +19,7 @@ let secondCard;
 let lockBoard = false;
 
 //Popup
-let popup = document.getElementById('congratulations');
+
 
 
 //Shuffles the numbers on the card
@@ -112,19 +112,22 @@ function resetBoard() {
 function flippBackCards() {
     moves = 0;
     counter.innerHTML = 'Moves: ' + moves;
-    for ( i = 0; i < card.length; i++) {
+    for (i = 0; i < card.length; i++) {
         card[i].classList.remove('card-front');
     }
 }
 
 //To remove the popup from the page
 function showPopup() {
+    let popup = document.getElementById('congratulations');
     popup.classList.toggle('hide');
     document.getElementById('try-again-button').addEventListener('click', function() {
-        popup.classList.toggle('hide');
+        let popup = document.getElementById('congratulations');
+        popup.classList.add('hide');
         restartGame();
     });
 }
+console.log(cardNumber);
 
 //Pressing the button to restart the game
 document.getElementById('new-game-button').addEventListener('click', restartGame);
