@@ -117,11 +117,16 @@ main {
 
 
 /*--------------------POPUP Congratulation-------------------------*/
+.hide {
+    display: none !important;
+}
+
 #congratulations {
     background-color: #a1a1a1;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, .4);
     width: 50%;
     height: 70%;
+    z-index: 1;
     position: absolute;
     transition: opacity 500ms, all 2s ease-in-out;
     border-radius: 10px;
@@ -134,8 +139,4 @@ main {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-}
-
-.hide {
-    display: none;
 }

@@ -78,7 +78,7 @@ function checkForMatch() {
 
         //Congratulations popup when game has been won
         if (countMatch === 8) {
-            document.getElementById('congratulations').classList.toggle('hide');
+            popup.classList.toggle('hide');
             document.getElementById('try-again-button').addEventListener('click', restartGame);
         }
         disableFlippedCards();
@@ -119,11 +119,16 @@ function flippBackCards() {
     }
 }
 
+//To remove the popup from the page
+function removePopup() {
+    popup.classList.toggle('hide');
+}
+
 //Pressing the button to restart the game
 document.getElementById('new-game-button').addEventListener('click', restartGame);
 
 function restartGame() {
     flippBackCards();
     assignNumber();
-    //congratulations.classList.remove('hide');
+    removePopup();
 }
