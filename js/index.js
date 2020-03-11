@@ -18,9 +18,6 @@ let secondCard;
 //Lock the card in place
 let lockBoard = false;
 
-//Popup
-
-
 
 //Shuffles the numbers on the card
 function shuffleCard() {
@@ -127,7 +124,6 @@ function showPopup() {
         restartGame();
     });
 }
-console.log(cardNumber);
 
 //Pressing the button to restart the game
 document.getElementById('new-game-button').addEventListener('click', restartGame);
